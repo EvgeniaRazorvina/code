@@ -1,8 +1,11 @@
 import React from 'react';
+import TopAppBar from './components/TopAppBar';
+import './appStyles.css';
 
 function App() {
   return (
-    <div>
+    <div className='containerApp'>
+      <TopAppBar onChange={()=> {}}/>
 
     </div>
   );
