@@ -1,0 +1,42 @@
+.inputGroup {
+    background-color: #F7F7F8;
+    border-radius: 16px;
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.buttonSearch{
+    outline: none;
+    border: 0px;
+    background-color: #F7F7F8;
+    border-radius: 16px;
+    height: 100%;
+    margin-right: 10px;
+}
+.search{
+    width: 20px;
+    height: 20px;
+}
+.formControl{
+    width: 100%;
+    outline: none;
+    border: 0px;
+    background-color: #F7F7F8;
+    font-size: 15px;
+    line-height: 20px;
+    height: auto;
+    align-items: center;    
+}
+.sortIcon{
+    width: 20px;
+    height: 12px;
+}
+.buttonSort{
+    outline: none;
+    border: 0px;
+    background-color: #F7F7F8;
+    justify-content: end;
+}
+
