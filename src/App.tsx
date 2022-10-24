@@ -5,7 +5,7 @@ import './appStyles.css';
 function App() {
   return (
     <div className='containerApp'>
-      <TopAppBar onChange={()=> {}}/>
+      <TopAppBar/>
 
     </div>
   );

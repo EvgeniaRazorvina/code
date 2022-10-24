@@ -1,0 +1,15 @@
+export type UsersList = {
+    items: User[];
+}
+
+export type User = {
+    id: string;
+    avatarUrl: string;
+    firstName: string;
+    lastName: string;
+    userTag: string;
+    department: string;
+    position: string;
+    birthday: string;
+    phone: string;
+}

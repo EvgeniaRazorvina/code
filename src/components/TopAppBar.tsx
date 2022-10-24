@@ -1,28 +1,106 @@
-import React from 'react';
-import { Button, Container, Form, InputGroup, Row } from 'react-bootstrap';
-import './topAppBarStyles.css';
+import React, {
+    ChangeEvent,
+     useEffect, useState } from 'react';
+import { Button, Form, FormControlProps, InputGroup, Tab, Tabs} from 'react-bootstrap';
+import { propTypes } from 'react-bootstrap/esm/Image';
+import { textSpanIntersectsWith } from 'typescript';
+import { User } from '../data/types';
+import './topAppBarStyles.css'; 
 const search = require('../images/searchIcon.png');
 const sortIcon = require('../images/sortIcon.png');
 
-type TopAppBarProps = {
-    onChange: () => void;
+type InputGroupElementProps = {
+    onChange: (event: any) => void;
+    value: string;
 }
 
-const TopAppBar: React.FC<TopAppBarProps> = props => {
+const InputGroupElement: React.FC<InputGroupElementProps> = props => {
     return (
         <InputGroup className="inputGroup">
-            <Button className="buttonSearch" onChange={props.onChange}>
-                <img className="search" src={search} />
-            </Button>
+            <img className="search" src={search} />
             <Form.Control
                 className="formControl"
                 placeholder="Ведите имя, тег, почту..."
+                onChange={props.onChange}
+                value={props.value}
             />
-            <Button className="buttonSort" onChange={props.onChange}>
+            <Button className="buttonSort">
                 <img className="sortIcon" src={sortIcon} />
             </Button>
         </InputGroup>
     );
+}
+
+type TabTopPanelProps = {
+    items: Array<User>;
+    selectedIndex?: number;
+    onTabChange: (index: number) => void;
+};
+const TabTopPanel: React.FC<TabTopPanelProps> = (props) => {
+    const [tabIndex, setTabIndex] = useState(props.selectedIndex ?? 0);
+    const currentIndex = props.selectedIndex ?? tabIndex;
+    return (
+        <div className='tabsContainer'>
+        <Button className='tabFirst'>Все</Button>
+        {props.items.map((item, index) => (
+            <Button 
+                className='tab' 
+                key={`item${index}`}
+                onClick={() => {
+                    setTabIndex(index);
+                    props.onTabChange(index);
+                }}
+            >
+                {item.department}
+            </Button>
+        ))}
+        </div>
+
+    )
+}
+
+const arrDepartment = ['Android', 'iOS','Дизайн','Менеджмент','QA','Бэк-офис','Frontend','HR','PR','Backend', 'Техподдержка','Аналитика'];
+
+const TopAppBar = () => {
+    const [users, setUsers] = useState<Array<User>>([]);
+    const [tabIndex, setTabIndex] = useState(0);
+    const [text, setText] = useState('');
+    
+
+    const load = async () => {
+        try{
+            const response = await fetch  ("https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__example=all", 
+            {
+            method: 'GET',    
+            headers: { "Content-Type": "application/json" }
+            });
+            const dataRes = await response.json();
+            setUsers(dataRes.items);
+        } catch(error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        load();
+    }, [])
+     return(
+        <>
+        <InputGroupElement 
+            value={text} 
+            onChange={(e) => {
+                e.preventDefault(); // prevent the default action
+                setText(e.target.value); // set name to e.target.value (event)
+            }}
+        />
+
+        <TabTopPanel items={users}                         
+        onTabChange={index => {
+                            setTabIndex(index);}}/>
+        <div className='underline'></div>
+        </>
+    )
+
 };
 
 export default TopAppBar;

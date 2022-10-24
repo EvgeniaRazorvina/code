@@ -6,18 +6,12 @@
     padding-right: 16px;
     display: flex;
     justify-content: space-between;
-}
-.buttonSearch{
-    outline: none;
-    border: 0px;
-    background-color: #F7F7F8;
-    border-radius: 16px;
-    height: 100%;
-    margin-right: 10px;
+    align-items: center;
 }
 .search{
     width: 20px;
     height: 20px;
+    margin-right: 10px;
 }
 .formControl{
     width: 100%;
@@ -38,5 +32,25 @@
     border: 0px;
     background-color: #F7F7F8;
     justify-content: end;
+}
+.tabsContainer{
+    margin-top: 22px;
+}
+.tab, .tabFirst{
+    border-width: 0px;
+    border-style: none;
+    background-color: white;
+    border-image: unset;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0 12px 0 12px;
+    padding: 0px;
+    color: #97979B;
+}
+.underline{
+    margin-top: 7px;
+    height: 0.33px;
+    background-color: #C3C3C6;
 }
 
