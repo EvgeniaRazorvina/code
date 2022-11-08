@@ -36,8 +36,8 @@
 .tabsContainer{
     margin-top: 22px;
 }
-.tab, .tabFirst{
-    border-width: 0px;
+/*.tab, .tabFirst{
+    border-width: 1px;
     border-style: none;
     background-color: white;
     border-image: unset;
@@ -47,10 +47,31 @@
     margin: 0 12px 0 12px;
     padding: 0px;
     color: #97979B;
-}
+
+}*/
 .underline{
     margin-top: 7px;
     height: 0.33px;
     background-color: #C3C3C6;
+    margin-bottom: 16px;
+}
+.activeTab, .inactiveTab, .tabFirst{
+    border-style: none;
+    background-color: white;
+    border-image: unset;
+    margin: 0 12px 0 12px;
+    padding: 0px;
+    font-size: 15px;
+    line-height: 20px;
+    align-items: center;
+}
+.activeTab{
+    color:#050510;
+    font-weight: 600;
+
+}
+.inactiveTab{
+    color: #97979B;
+    font-weight: 500;
 }
 
