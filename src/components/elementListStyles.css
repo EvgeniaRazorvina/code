@@ -1,0 +1,49 @@
+.button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 0px;
+    text-decoration: none;
+    padding: 0px;
+    background-color: white;
+    align-items: center;
+    vertical-align: middle;
+    margin: 6px 0 6px 0;
+}
+.img{
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+}
+.containerText{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 16px;
+}
+.containerNameUserTag{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.pName{
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #050510;
+}
+.pUserTag{
+    margin: 0 0 0 4px;
+    color: #97979B;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+}
+.pDepartment{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #55555C;
+}
